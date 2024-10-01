@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "global-require": "off",
+    "id-length": [2, { "min": 2, "properties": "never", "exceptions": ["t"] }],
+    "no-shadow": "off",
+    "strict":"off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "import/no-dynamic-require": "off",
+  }
+}

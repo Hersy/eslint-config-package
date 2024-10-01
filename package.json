@@ -1,0 +1,80 @@
+{
+  "name": "@hersy/eslint-config-package",
+  "version": "0.1.0",
+  "description": "Hersy Packages ESLint config",
+  "keywords": [
+    "hersy",
+    "babel",
+    "eslint",
+    "eslint-config",
+    "node",
+    "prettier",
+    "typescript"
+  ],
+  "homepage": "https://github.com/hersy/eslint-config-package",
+  "bugs": {
+    "url": "https://github.com/hersy/eslint-config-package/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hersy/eslint-config-package"
+  },
+  "license": "MIT",
+  "author": "Hersy <hersy@hersy.org>",
+  "files": [
+    "rules",
+    "index.js",
+    "babel.config.js",
+    "prettier.config.js",
+    "tsconfig.base.json"
+  ],
+  "main": "index.js",
+  "bin": {
+    "hplint": "./bin/hplint.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "lint": "eslint --report-unused-disable-directives .",
+    "pretests-only": "node ./test/requires",
+    "pretest": "yarn --silent lint",
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "test": "yarn --silent tests-only",
+    "prepublish-only": "eslint-find-rules --unused",
+    "prepublish": "not-in-publish || yarn prepublish-only"
+  },
+  "dependencies": {
+    "@babel/core": "^7.25.0",
+    "@babel/eslint-parser": "^7.25.0",
+    "@babel/preset-env": "^7.25.0",
+    "@babel/preset-typescript": "^7.24.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "babel-preset-current-node-syntax": "^1.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-import-name": "^1.2.0",
+    "eslint-plugin-prettier": "^5.2.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "prettier": "^3.3.0",
+    "prettier-eslint": "^16.3.0",
+    "typescript": "~5.5.0"
+  },
+  "devDependencies": {
+    "@hersy/babel-tape-runner": "^1.0.0",
+    "@types/tape": "^5.6.0",
+    "eslint-find-rules": "^4.1.0",
+    "in-publish": "^2.0.0",
+    "tape": "^5.9.0"
+  },
+  "resolutions": {
+    "@humanwhocodes/config-array": "yarn:@eslint/config-array@^0.17.0",
+    "ansi-regex": "^5.0.1",
+    "glob": "^9.3.0",
+    "rimraf": "^4.0.0"
+  },
+  "packageManager": "yarn@1.22.22"
+}
