@@ -1,4 +1,4 @@
-# Hersy Packages ESLint config v0.1.0
+# Hersy Packages ESLint config v0.1.1
 
 Provides the ESLint + Babel + Prettier + Typescript configurations used by Hersy's published NPM packages as an extensible shared config.
 

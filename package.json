@@ -1,6 +1,6 @@
 {
   "name": "@hersy/eslint-config-package",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hersy Packages ESLint config",
   "keywords": [
     "hersy",
@@ -22,6 +22,7 @@
   "license": "MIT",
   "author": "Hersy <hersy@hersy.org>",
   "files": [
+    "bin",
     "rules",
     "index.js",
     "babel.config.js",
