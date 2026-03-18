@@ -1,43 +1,40 @@
 {
-  "name": "@hersy/eslint-config-package",
-  "version": "0.1.1",
-  "description": "Hersy Packages ESLint config",
+  "name": "@hersy/eslint-config-react",
+  "version": "0.1.2",
+  "description": "A modern ESLint configuration for React projects, following my styleguide",
   "keywords": [
+    "config",
     "hersy",
-    "babel",
     "eslint",
-    "eslint-config",
+    "eslintconfig",
     "node",
-    "prettier",
-    "typescript"
+    "react",
+    "styleguide"
   ],
-  "homepage": "https://github.com/hersy/eslint-config-package",
+  "homepage": "https://github.com/hersy/eslint-config-react",
   "bugs": {
-    "url": "https://github.com/hersy/eslint-config-package/issues"
+    "url": "https://github.com/hersy/eslint-config-react/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hersy/eslint-config-package"
+    "url": "https://github.com/hersy/eslint-config-react"
   },
   "license": "MIT",
-  "author": "Hersy <hersy@hersy.org>",
+  "author": "Hersy <contact@hersy.dev>",
+  "type": "module",
   "files": [
-    "bin",
     "rules",
-    "index.js",
-    "babel.config.js",
-    "prettier.config.js",
-    "tsconfig.base.json"
+    "index.js"
   ],
   "main": "index.js",
-  "bin": {
-    "hplint": "./bin/hplint.js"
-  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "lint": "eslint --report-unused-disable-directives .",
+    "lint": "eslint . --report-unused-disable-directives --ext .js,json,md",
+    "lint-fix": "eslint . --fix --ext .js,json,md",
+    "format": "yarn run --silent lint-fix",
+    "eslint-check": "eslint --print-config eslint.config.js",
     "pretests-only": "node ./test/requires",
     "pretest": "yarn --silent lint",
     "tests-only": "babel-tape-runner ./test/test-*.js",
@@ -46,36 +43,23 @@
     "prepublish": "not-in-publish || yarn prepublish-only"
   },
   "dependencies": {
-    "@babel/core": "^7.25.0",
-    "@babel/eslint-parser": "^7.25.0",
-    "@babel/preset-env": "^7.25.0",
-    "@babel/preset-typescript": "^7.24.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "babel-preset-current-node-syntax": "^1.1.0",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.30.0",
-    "eslint-plugin-import-name": "^1.2.0",
-    "eslint-plugin-prettier": "^5.2.0",
-    "eslint-plugin-unused-imports": "^3.2.0",
-    "prettier": "^3.3.0",
-    "prettier-eslint": "^16.3.0",
-    "typescript": "~5.5.0"
+    "@hersy/eslint-config-node": "^0.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/runtime": "^7.27.0",
+    "@hersy/babel-preset": "^0.2.0",
     "@hersy/babel-tape-runner": "^1.0.0",
-    "@types/tape": "^5.6.0",
-    "eslint-find-rules": "^4.1.0",
+    "eslint": "^9.24.0",
+    "eslint-find-rules": "^5.0.0",
     "in-publish": "^2.0.0",
     "tape": "^5.9.0"
   },
+  "peerDependencies": {
+    "eslint": "^9.24.0"
+  },
   "resolutions": {
-    "@humanwhocodes/config-array": "yarn:@eslint/config-array@^0.17.0",
-    "ansi-regex": "^5.0.1",
-    "glob": "^9.3.0",
-    "rimraf": "^4.0.0"
+    "glob": "^9.3.0"
   },
   "packageManager": "yarn@1.22.22"
 }
